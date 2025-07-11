@@ -5,5 +5,5 @@ type Env = {
 
 export const env: Env = {
   API_URI: process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000',
-  LOG_LEVEL: (process.env.NEXT_PUBLIC_LOG_LEVEL as Env['LOG_LEVEL']) ?? 'info'
+  LOG_LEVEL: ( process.env.NEXT_PUBLIC_LOG_LEVEL as Env['LOG_LEVEL'] ) ?? 'info'
 }

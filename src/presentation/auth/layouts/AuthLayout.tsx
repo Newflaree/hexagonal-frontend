@@ -1,18 +1,11 @@
-// React
 import {
   Fragment,
   ReactNode
 } from 'react';
-// Nextjs
 import Head from 'next/head';
-// Components
-import {
-  Footer,
-  TopMenu
-} from '../../shared/components';
 
 
-interface Props {
+interface AuthLayoutProps {
   children: ReactNode;
   title: string;
 }
@@ -20,24 +13,20 @@ interface Props {
 export const AuthLayout = ({
   children,
   title
-}: Props) => {
-  const layoutPageTitle = `test page - ${ title }`;
+}: AuthLayoutProps) => {
+  const pageTitle = `Authentication - ${ title }`;
 
   return (
     <Fragment>
       <Head>
-        <title>{ layoutPageTitle }</title>
+        <title>{ pageTitle }</title>
       </Head>
 
-      <div>
-        <TopMenu />
-
-        <div>
+      <main className='min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4'>
+        <section className='w-full max-w-md rounded-2xl bg-white shadow-xl p-8'>
           { children }
-        </div>
-
-        <Footer />
-      </div>
+        </section>
+      </main>
     </Fragment>
   );
 }

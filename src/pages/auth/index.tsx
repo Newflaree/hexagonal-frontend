@@ -1,41 +1,20 @@
-// Nextjs
-import {
-  NextPage,
-  GetStaticPaths,
-  GetServerSideProps
-} from 'next';
-// Hooks
-import { useCustomHook } from '@/presentation/auth/hooks';
-// Views
-import { AuthLoginView } from '@/presentation/auth/views';
+import type { NextPage, GetServerSideProps } from 'next';
+import { useLoginForm } from '@/presentation/auth/hooks/useLoginForm';
+import { AuthLoginView } from '@/presentation/auth/views/AuthLoginView';
 
 
-//interface Props {}
-type Props = Record<string, never>
+type Props = Record<string, never>;
 
-const AuthLoginPage: NextPage<Props> = ({ props }) => {
-  const {
-    text,
-    handleSetText
-  } = useCustomHook();
+const AuthLoginPage: NextPage<Props> = () => {
+  const form = useLoginForm();
 
   return <AuthLoginView
-    title={ text }
-    handleSetText={ handleSetText }
+    { ...form }
   />
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: 'blocking'
-  }
-}
+};
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  return {
-    props: {}
-  }
-}
+  return { props: {} };
+};
 
 export default AuthLoginPage;

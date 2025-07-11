@@ -1,40 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Proyecto Frontend – Next.js + TypeScript con Arquitectura Hexagonal
 
-## Getting Started
+![status](https://img.shields.io/badge/status-active-brightgreen)
+![node](https://img.shields.io/badge/node-%3E=20.x-blue)
 
-First, run the development server:
+> **TL;DR**  
+> Frontend modular basado en Next.js y principios de **Arquitectura Hexagonal** para lograr una solución **escalable, mantenible y de alto rendimiento**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Introducción
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Este repositorio contiene el frontend de **Nombre-del-Proyecto**, un SPA/SSR construido con Next.js y TypeScript. Adoptamos **Arquitectura Hexagonal** para aislar la UI de la lógica de negocio y de los detalles de infraestructura, lo que permite:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Evolucionar la aplicación sin “efecto dominó”.
+- Sustituir servicios externos (APIs, bases de datos, etc.) sin reescribir reglas de negocio.
+- Mejorar la experiencia de usuario mediante SSR, SSG y *code-splitting*.
+- Incrementar la cobertura de tests de forma sencilla.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏗 Visión rápida de la arquitectura
 
-## Learn More
+| Capa                        | Rol principal                                             | Ejemplos                           |
+|-----------------------------|-----------------------------------------------------------|------------------------------------|
+| **Interfaz de Usuario**     | Páginas y componentes Next.js / React                    | `pages/login.tsx`, `LoginForm`     |
+| **Servicios de Aplicación** | Casos de uso y puertos que orquestan la lógica           | `LoginUserUseCase`, `AuthRepository` |
+| **Dominio**                 | Entidades y *Value Objects* con reglas de negocio puras  | `User`, `Email`                    |
+| **Infraestructura**         | Adaptadores que implementan los puertos                  | `AuthApiAdapter`, `fetchHttpClient` |
 
-To learn more about Next.js, take a look at the following resources:
+El flujo típico es **UI → Servicio de Aplicación → Dominio → Adaptador → Servicio externo**, y la respuesta regresa atravesando las mismas capas en sentido inverso.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 Tecnologías
 
-## Deploy on Vercel
+| Tecnología                    | Versión | Uso principal                                           |
+|-------------------------------|---------|---------------------------------------------------------|
+| **Next.js**                   | 15.3.5  | Framework React con SSR/SSG y enrutado automático       |
+| **React / React DOM**         | 19.0.0  | Librería base de UI                                     |
+| **TypeScript**                | 5.x     | Tipado estático y DX mejorada                           |
+| **Tailwind CSS**              | 4.1.11  | Framework de estilos utilitarios                        |
+| **PostCSS**                   | 8.5.6   | Pipeline de transformación CSS                          |
+| **Zod**                       | 3.25.76 | Validación y *schemas* de datos                         |
+| **ESLint**                    | 9.x     | Lint de código                                          |
+| **eslint-config-next**        | 15.3.5  | Reglas recomendadas para proyectos Next.js              |
+| **Husky + lint-staged** (op.) | —       | Hooks Git para calidad en cada commit                   |
+| **npm**                       | 10.x    | Gestor de paquetes                                      |
+| **Docker** (opcional)         | 25.x    | Contenedores para builds reproducibles                  |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📐 Principios arquitectónicos y buenas prácticas
+
+| Categoría | Principio / práctica            | Breve descripción                                           |
+|-----------|----------------------------------|-------------------------------------------------------------|
+| **Arquitectura** | Hexagonal / Ports & Adapters | Separación clara de capas; dominio independiente de frameworks |
+|               | DDD táctico                     | *Entities* y *Value Objects* bien definidos                 |
+| **Código**      | SOLID                         | Énfasis en SRP e inversión de dependencias                  |
+|               | Tipado estricto                 | `strict` + `noUncheckedIndexedAccess` en `tsconfig`         |
+| **CI/CD**       | Lint & Test on push           | Se bloquean PR si fallan linter o tests                     |
+| **UX**          | SSR / SSG                     | Mejora FCP & SEO, reduce TTI                                |
+| **Performance** | *Code splitting* & *lazy*     | Carga por página + imports dinámicos                        |
+
+---
+
+## 🚀 Instrucciones para levantar en local
+
+1. **Configurar variables de entorno**
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
+
+3. ****
+   ```bash
+   npm run dev
+   ```
+
