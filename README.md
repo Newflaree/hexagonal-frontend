@@ -8,7 +8,7 @@
 
 ---
 
-## ✨ Introducción
+## Introducción
 
 Este repositorio contiene el frontend de **Nombre-del-Proyecto**, un SPA/SSR construido con Next.js y TypeScript. Adoptamos **Arquitectura Hexagonal** para aislar la UI de la lógica de negocio y de los detalles de infraestructura, lo que permite:
 
@@ -19,7 +19,7 @@ Este repositorio contiene el frontend de **Nombre-del-Proyecto**, un SPA/SSR con
 
 ---
 
-## 🏗 Visión rápida de la arquitectura
+## Visión rápida de la arquitectura
 
 | Capa                        | Rol principal                                             | Ejemplos                           |
 |-----------------------------|-----------------------------------------------------------|------------------------------------|
@@ -32,7 +32,7 @@ El flujo típico es **UI → Servicio de Aplicación → Dominio → Adaptador �
 
 ---
 
-## 🛠 Tecnologías
+## Tecnologías
 
 | Tecnología                    | Versión | Uso principal                                           |
 |-------------------------------|---------|---------------------------------------------------------|
@@ -50,7 +50,7 @@ El flujo típico es **UI → Servicio de Aplicación → Dominio → Adaptador �
 
 ---
 
-## 📐 Principios arquitectónicos y buenas prácticas
+## Principios arquitectónicos y buenas prácticas
 
 | Categoría | Principio / práctica            | Breve descripción                                           |
 |-----------|----------------------------------|-------------------------------------------------------------|
@@ -64,7 +64,7 @@ El flujo típico es **UI → Servicio de Aplicación → Dominio → Adaptador �
 
 ---
 
-## 🚀 Instrucciones para levantar en local
+## Instrucciones para levantar en local
 
 1. **Configurar variables de entorno**
    ```bash
@@ -76,7 +76,7 @@ El flujo típico es **UI → Servicio de Aplicación → Dominio → Adaptador �
    npm install
    ```
 
-3. ****
+3. **Levantar proyecto**
    ```bash
    npm run dev
    ```
