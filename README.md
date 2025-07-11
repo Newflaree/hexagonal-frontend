@@ -41,10 +41,8 @@ El flujo típico es **UI → Servicio de Aplicación → Dominio → Adaptador �
 | **TypeScript**                | 5.x     | Tipado estático y DX mejorada                           |
 | **Tailwind CSS**              | 4.1.11  | Framework de estilos utilitarios                        |
 | **PostCSS**                   | 8.5.6   | Pipeline de transformación CSS                          |
-| **Zod**                       | 3.25.76 | Validación y *schemas* de datos                         |
 | **ESLint**                    | 9.x     | Lint de código                                          |
 | **eslint-config-next**        | 15.3.5  | Reglas recomendadas para proyectos Next.js              |
-| **Husky + lint-staged** (op.) | —       | Hooks Git para calidad en cada commit                   |
 | **npm**                       | 10.x    | Gestor de paquetes                                      |
 
 ---
