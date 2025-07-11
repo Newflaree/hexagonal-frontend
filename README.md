@@ -46,7 +46,6 @@ El flujo típico es **UI → Servicio de Aplicación → Dominio → Adaptador �
 | **eslint-config-next**        | 15.3.5  | Reglas recomendadas para proyectos Next.js              |
 | **Husky + lint-staged** (op.) | —       | Hooks Git para calidad en cada commit                   |
 | **npm**                       | 10.x    | Gestor de paquetes                                      |
-| **Docker** (opcional)         | 25.x    | Contenedores para builds reproducibles                  |
 
 ---
 
@@ -58,7 +57,6 @@ El flujo típico es **UI → Servicio de Aplicación → Dominio → Adaptador �
 |               | DDD táctico                     | *Entities* y *Value Objects* bien definidos                 |
 | **Código**      | SOLID                         | Énfasis en SRP e inversión de dependencias                  |
 |               | Tipado estricto                 | `strict` + `noUncheckedIndexedAccess` en `tsconfig`         |
-| **CI/CD**       | Lint & Test on push           | Se bloquean PR si fallan linter o tests                     |
 | **UX**          | SSR / SSG                     | Mejora FCP & SEO, reduce TTI                                |
 | **Performance** | *Code splitting* & *lazy*     | Carga por página + imports dinámicos                        |
 
